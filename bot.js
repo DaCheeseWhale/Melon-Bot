@@ -18,7 +18,7 @@ var idArray = [];
 var idFlexArray = []; 
 var melonChannel = `837489334793273374`; //F&C ID: 837489334793273374   //testing ID: 838551921995415602 
 var dshuTime = 0
-var melonMessage = (`<@&${roleID}> \n:watermelon:: Customs \n:melon:: Flex` + `\nCurrent watermelons: ` + customArray.length + "\n" + customArray.join("\n") + "\n\nCurrent melons: " + flexArray.length + "\n" + flexArray.join("\n"))
+var melonMessage = (`<@&${roleID}> \n:watermelon:: Customs` /*\n:melon:: Flex`*/ + `\nCurrent watermelons: ` + customArray.length + "\n" + customArray.join("\n") /*+ "\n\nCurrent melons: " + flexArray.length + "\n" + flexArray.join("\n")*/)
 var customAtSent = false; 
 var flexAtSent = false; 
 
@@ -112,7 +112,7 @@ function createWatermelonMessage(channelID) {
 	.then(sent => { //sent is the most recently sent message  //Vishaal: it's prolly not most recent msg sent but the message sent by .send
 		console.log('Hi');
 		sent.react(`🍉`); 
-		sent.react(`🍈`); 
+		//sent.react(`🍈`); 
 		melonID = sent.id; 
 		melonLink = sent.url; 
 		customAtSent = false; 
@@ -123,7 +123,7 @@ function createWatermelonMessage(channelID) {
 } 
 
 function refreshMelonMessage() {
-	melonMessage = (`<@&${roleID}> \n:watermelon:: Customs \n:melon:: Flex` + `\nCurrent watermelons: ` + customArray.length + "\n" + customArray.join("\n") + "\n\nCurrent melons: " + flexArray.length + "\n" + flexArray.join("\n"))
+	melonMessage = (`<@&${roleID}> \n:watermelon:: Customs` /*\n:melon:: Flex`*/ + `\nCurrent watermelons: ` + customArray.length + "\n" + customArray.join("\n") /*+ "\n\nCurrent melons: " + flexArray.length + "\n" + flexArray.join("\n")*/)
 }
 
 
@@ -181,7 +181,7 @@ client.on('messageReactionAdd', (reaction, user) => {
 									
 		}
 
-
+/*
 		if (message.id === `${melonID}` && emoji.name === `🍈` && user.id !== client.user.id) {
 
 			console.log(`Melon message reacted to`);
@@ -199,7 +199,7 @@ client.on('messageReactionAdd', (reaction, user) => {
 
 				refreshMelonMessage(); 
 				message.edit(melonMessage); 
-//`<@&${roleID}> :watermelon:` + `\nCurrent melons: ` + customArray.length + "\n" + customArray.join("\n")
+
 				if (flexArray.length === 1) { reaction.users.remove(client.id) }
 
 				if (flexArray.length === 5 && flexAtSent === false) { 
@@ -216,6 +216,7 @@ client.on('messageReactionAdd', (reaction, user) => {
 			});
 									
 		}
+*/
 
 });
 
@@ -264,6 +265,7 @@ client.on('messageReactionRemove', (reaction, user) => {
  
 		}
 
+/*
 		//🍈 
 		if (message.id === `${melonID}` && emoji.name === `🍈` && user.id !== client.user.id) {
 			
@@ -277,11 +279,11 @@ client.on('messageReactionRemove', (reaction, user) => {
 
 				var removeMe = member.displayName;
 
-				/* #OLD#
+				 #OLD#
 				//remove name from list
-				var newMsg = message.content.replace(member.displayName, '');
-				message.edit(`${newMsg}`);
-				*/
+				//var newMsg = message.content.replace(member.displayName, '');
+				//message.edit(`${newMsg}`);
+				
 
 				//removes the one who unmeloned from the custom array and edits message 
 				var temp; 
@@ -303,6 +305,7 @@ client.on('messageReactionRemove', (reaction, user) => {
 			});
  
 		}
+*/
 
 });
 
