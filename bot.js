@@ -26,7 +26,7 @@ var flexAtSent = false;
 var cron = require('node-cron');
 
 //6 *s -> seconds, minutes, hours, day of month, month, day of week  //24 hours time  //* = run every, i.e. * 0 0 * * *  = run every second for the 0th minute of the 0th hour of every day every year
-cron.schedule('0 0 21 * * *', () => { 
+cron.schedule('0 45 20 * * *', () => { 
 	createWatermelonMessage(melonChannel); 
 });
 
